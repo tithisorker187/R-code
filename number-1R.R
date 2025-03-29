@@ -8,8 +8,8 @@ age=c(42,62,40,54,42,56,51,32,31,3,48,44,50,22,40,23)
 fit=lm(house~size+age)
 fit
 summary(fit)
-#B1=1.70921 ,a one unit increase in X1 results in an increase in Y is 1.709.
-#B2=-0.08262 ,it means for every unit increase in x1,y decreases 0.082 units.
+#B1=1.70921 ,a one unit increase in size results in an increase in house is 1.709.
+#B2=-0.08262 ,it means for every unit increase in size,house decreases 0.082 units.
 
 #******************************(b)**********************************##
 ##calculate R square and adjusted R square********
@@ -17,8 +17,8 @@ summary(fit)
 #calculate R square
 summary(fit)$r.squared
 
-#interpretation:  R^2=0.947. it means that 94% of the variance in y explained
-#by the regression model.and ^% are remaining due to radom error.
+#interpretation:  R^2=0.469it means that 947% of the variance in y explained
+#by the regression model.and remaining due to random error.
 
 #Adjusted R squared
 
