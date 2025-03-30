@@ -72,13 +72,13 @@ pred_interval
 
 #********************************(E)**********************************
 #standardised variables 
-y_std=(y-mean(y)/sd(y))
-y_std
-x1_std=(x1-mean(x1)/sd(x1))
-x1_std
-x2_std=(x2-mean(x2)/sd(x2))
-x2_std
-model_std=lm(y_std~ x1_std + x2_std)
+house_std=(house-mean(house)/sd(house))
+house_std
+size_std=(size-mean(size)/sd(size))
+size_std
+age_std=(age-mean(age)/sd(age))
+age_std
+model_std=lm(house_std~ size_std + age_std)
 model_std
 summary(model_std)$coefficients
 
@@ -86,11 +86,11 @@ summary(model_std)$coefficients
 ###*******************************(F)***********************************
 
 #fit regression models without interaction
-model1=lm(y~x1+x2)
+model1=lm(house~size+age)
 model1
 #with interaction
 
-model2=lm(y~x1*x2)
+model2=lm(house~size*age)
 model2
 #compare models using anova
 anova_results=anova(model1,model2)
