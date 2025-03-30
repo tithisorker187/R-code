@@ -29,15 +29,15 @@ par(mfrow=c(1,3))
 
 #normal probability plot
 qqnorm(residuals,main="QQ plot: Ordinary residuals")
-qqline(residuals)
+qqline(residuals,col="blue")
 
 #plot-2 studentized residuals
 qqnorm(studentized_residuals,main="QQ plot: Studentized Residuals")
-qqline(deleted_studentized_residuals)
+qqline(deleted_studentized_residuals,col="green")
 #plot_3
 
 qqnorm(deleted_studentized_residuals,main="QQ plot:Deleted Studentized Residuals")
-qqline(deleted_studentized_residuals)
+qqline(deleted_studentized_residuals,col="red")
 #reset plot layout
 par(mfrow=c(1,1))
 
