@@ -8,16 +8,17 @@ model=lm(Y~X1+X2)
 model
 summary(model)
 #95% confidence interval 
-confint(model)
+confint(model,level=0.95)
 
 #sum of error square ESS
-deviance(model)
+ESS=deviance(model)
+ESS
 
 #sum of square total TSS
-deviance(lm(Y~1))
-
+TSS=deviance(lm(Y~1))
+TSS
 #RSS
-RSS=5784.543-233.7317
+RSS=TSS-ESS
 RSS
 #ANOVA
 anova(model)
