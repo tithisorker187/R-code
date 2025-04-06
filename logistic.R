@@ -14,7 +14,7 @@ print(loan_data)
 loan_data$Married_dummy=ifelse(loan_data$Married=="Yes",1,0)
 loan_data$Married_dummy
 
-model=lm(Approved~Income+CreditScore+LoanAmount+Married_dummy,family=binomial(link="logit"),data=loan_data)
+model=glm(Approved~Income+CreditScore+LoanAmount+Married_dummy,family=binomial(link="logit"),data=loan_data)
 model
 summary(model)
 
