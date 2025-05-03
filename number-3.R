@@ -52,6 +52,14 @@ outliers_studentized
 outliers_deleted_studentized=which(abs(deleted_studentized_residuals) > 2)
 outliers_deleted_studentized
 
+#interpretation: observation 4 is flagged as an outlier by both studentized
+#and deleted studentized residuals
+#this means it has large residual.indicating the actual newgate value differs 
+#significantly from the predicted value given libby.
+
+
+
+
 #******************************(C)*************************888
 
 # Compute leverage values (hat values)
@@ -67,6 +75,11 @@ high_leverage_2x <- which(leverage_values > 2 * mean_leverage)
 high_leverage_2x
 high_leverage_3x <- which(leverage_values > 3 * mean_leverage)
 high_leverage_3x
+
+#interpretation: obsevation 4 has a leverage point which exceeds both 2x and 3x mean leverage.
+#4 is high leverage point ,meaning its predictor value(libby) is far from others.
+
+
 
 #******************************(D)**********************
 
@@ -84,7 +97,13 @@ influential_cooks
 influential_dffits=which(abs(dffits_value)>(2*sqrt(length(coef(Fit))/nrow(data))))
 influential_dffits
 
+#interpretation: Tells use how much predicted values for all observations would change
+#if a given point removed.
 
+#here higher cooks distance means greater influence on the regression fit.
+#observation #4 (4th row from dataset)was flagged by both cooks and dffits 
+#as influential.
+#this means removing this point would affect the model.
 
 #********************************(E)*************************
 
@@ -108,18 +127,16 @@ qqnorm(residual_clean,main="QQ plot:after removing outliers QQ plot")
 qqline(residual_clean,col="blue")
 
 
-Interpretation of Results:
-#1. QQ Plot Before Removing Outliers:
-#If the points deviate significantly from the straight line, 
-#it indicates that residuals are not normally distributed,
-#possibly due to influential outliers.
+#Interpretation of Results:
+#Before Outlier Removal:
+#The QQ plot likely shows curvature or heavy tails, indicating the residuals deviate from normality.
+#This suggests the regression assumptions (normality of residuals) may be violated, possibly due to an outlier or influential observation.
+
+#After Outlier Removal:
+#The QQ plot appears more linear, meaning the residuals now follow the normal distribution more closely.
 
 
 
-#2.QQ Plot After Removing Outliers:
-#If the plot becomes more linear, it suggests that removing the outliers improved normality.
-#If there’s little or no change, the outliers may not have affected normality significantly.
-#If the plot worsens, the removed points might not have been true outliers, and they could be important for the model.
 
 
 
